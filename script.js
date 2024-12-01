@@ -1,24 +1,24 @@
 // Configuration JSON
 const config = [
     {
-        imageUrl: "/assets/evet.jpg",
-        soundUrl: "/assets/evet.mp3"
+        imageUrl: "assets/evet.jpg",
+        soundUrl: "assets/evet.mp3"
     },
     {
-        imageUrl: "/assets/hayir.jpg",
-        soundUrl: "/assets/hayir.mp3"
+        imageUrl: "assets/hayir.jpg",
+        soundUrl: "assets/hayir.mp3"
     },
     {
-        imageUrl: "/assets/hoscakal.jpg",
-        soundUrl: "/assets/hoscakal.mp3"
+        imageUrl: "assets/hoscakal.jpg",
+        soundUrl: "assets/hoscakal.mp3"
     },
     {
-        imageUrl: "/assets/karga-mi-o.jpeg",
-        soundUrl: "/assets/karga-mi-o.mp3"
+        imageUrl: "assets/karga-mi-o.jpeg",
+        soundUrl: "assets/karga-mi-o.mp3"
     },
     {
-        imageUrl: "/assets/sen-deli-misin.jpg",
-        soundUrl: "/assets/sen-deli-misin.mp3"
+        imageUrl: "assets/sen-deli-misin.jpg",
+        soundUrl: "assets/sen-deli-misin.mp3"
     }
 ];
 
