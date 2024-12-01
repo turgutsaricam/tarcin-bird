@@ -35,6 +35,30 @@ let audio = null;
 let currentIndex = 0;
 let isPlaying = false; // Initially paused to avoid autoplay issues
 let timeoutId = null;
+let wakeLock = null; // For Screen Wake Lock API
+
+// Request wake lock
+async function requestWakeLock() {
+    try {
+        if ('wakeLock' in navigator) {
+            wakeLock = await navigator.wakeLock.request('screen');
+            console.log('Screen Wake Lock enabled.');
+        } else {
+            console.warn('Screen Wake Lock API not supported.');
+        }
+    } catch (err) {
+        console.error('Failed to enable Screen Wake Lock:', err);
+    }
+}
+
+// Release wake lock
+function releaseWakeLock() {
+    if (wakeLock) {
+        wakeLock.release();
+        wakeLock = null;
+        console.log('Screen Wake Lock released.');
+    }
+}
 
 function showSlide(index) {
     const { imageUrl, soundUrl } = config[index];
@@ -75,9 +99,11 @@ function togglePlayPause() {
     playPauseBtn.textContent = isPlaying ? "Pause" : "Play";
 
     if (isPlaying) {
+        requestWakeLock(); // Enable wake lock when playing
         restartSlideshow();
         playAudio()
     } else {
+        releaseWakeLock(); // Release wake lock when paused
         clearTimeout(timeoutId);
         pauseAudio();
     }
